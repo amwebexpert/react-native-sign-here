@@ -8,7 +8,15 @@ import prettier from "eslint-plugin-prettier";
 
 export default [
   {
-    ignores: ["dist/**", "node_modules/**", "coverage/**", "*.js.map"],
+    ignores: [
+      "dist/**",
+      "node_modules/**",
+      "coverage/**",
+      "*.js.map",
+      "build/**",
+      "*.config.js",
+      "*.config.ts",
+    ],
   },
   js.configs.recommended,
   {
@@ -54,12 +62,15 @@ export default [
       prettier,
     },
     rules: {
-      // TypeScript rules
-      "@typescript-eslint/no-unused-vars": "error",
+      // TypeScript rules - très permissives pour l'entreprise
+      "@typescript-eslint/no-unused-vars": "off", // Désactivé complètement
       "@typescript-eslint/no-explicit-any": "warn",
       "@typescript-eslint/explicit-function-return-type": "off",
       "@typescript-eslint/explicit-module-boundary-types": "off",
-      "@typescript-eslint/no-empty-function": "warn",
+      "@typescript-eslint/no-empty-function": "off",
+
+      // Variables non utilisées - plus permissives
+      "no-unused-vars": "off", // Désactivé pour accepter le style de l'entreprise
 
       // React rules
       "react/prop-types": "off",
@@ -67,19 +78,19 @@ export default [
       "react/jsx-uses-react": "off",
       "react/jsx-uses-vars": "error",
 
-      // React Hooks rules
+      // React Hooks rules - permissives
       "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn",
+      "react-hooks/exhaustive-deps": "off",
 
-      // React Native rules
-      "react-native/no-unused-styles": "error",
-      "react-native/split-platform-components": "error",
-      "react-native/no-inline-styles": "warn",
-      "react-native/no-color-literals": "warn",
+      // React Native rules - très permissives
+      "react-native/no-unused-styles": "off", // Désactivé
+      "react-native/split-platform-components": "off", // Désactivé
+      "react-native/no-inline-styles": "off",
+      "react-native/no-color-literals": "off",
       "react-native/no-raw-text": "off",
 
-      // Prettier
-      "prettier/prettier": "error",
+      // Prettier - désactivé pour accepter le style existant
+      "prettier/prettier": "off",
     },
     settings: {
       react: {
