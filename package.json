@@ -1,5 +1,5 @@
 {
-  "name": "react-native-sign-here",
+  "name": "@amwebexpert/react-native-sign-here",
   "version": "1.0.0",
   "type": "module",
   "main": "dist/index.js",
