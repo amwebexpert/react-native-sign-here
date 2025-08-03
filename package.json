@@ -11,15 +11,16 @@
   "author": "André Masson <amwebexpert@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "clean:node": "npx rimraf node_modules yarn.lock",
     "build": "tsc",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test": "jest"
   },
   "dependencies": {},
   "peerDependencies": {
-    "react": "^19.1.1",
-    "react-native": "^0.80.2",
-    "react-native-gesture-handler": "^2.27.2"
+    "react": ">=18.0.0",
+    "react-native": "*",
+    "react-native-gesture-handler": "*"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.27.1",
@@ -36,6 +37,7 @@
     "jest": "29",
     "metro-react-native-babel-preset": "^0.77.0",
     "prettier": "^3.6.2",
+    "rimraf": "^6.0.1",
     "ts-jest": "^29.4.1",
     "typescript": "^5.9.2"
   }
