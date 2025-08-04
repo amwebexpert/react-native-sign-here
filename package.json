@@ -1,6 +1,6 @@
 {
   "name": "@amwebexpert/react-native-sign-here",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -20,6 +20,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "fast-xml-parser": "^5.2.5",
     "parse-svg-path": "^0.1.2",
     "simplify-js": "^1.2.4"
   },

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 declare module 'react-native-svg' {
   import React, { Component } from 'react';
 

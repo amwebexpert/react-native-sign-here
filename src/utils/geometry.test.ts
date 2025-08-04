@@ -1,4 +1,4 @@
-import { computeDistance } from './canvas.utils';
+import { computeDistance } from './geometry';
 
 describe('computeDistance', () => {
   it('should compute distance between two points', () => {

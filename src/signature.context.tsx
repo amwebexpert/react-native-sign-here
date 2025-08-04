@@ -1,5 +1,5 @@
 import React, { createContext, ReactNode, useContext, useReducer } from 'react';
-import { SvgElement } from './signature.types';
+import { SvgElement } from './utils/types';
 
 interface SignatureState {
   elements: SvgElement[];

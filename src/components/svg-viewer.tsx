@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import Svg from 'react-native-svg';
 
-import { SvgElement, isCircle, isPath } from '../signature.types';
+import { SvgElement, isCircle, isPath } from '../utils/types';
 import { CircleViewer } from './circle-viewer';
 import { PathViewer } from './path-viewer';
 

@@ -1,0 +1,6 @@
+# Ignorer les mocks lors du build
+**/__mocks__/**
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
+**/*.spec.tsx 

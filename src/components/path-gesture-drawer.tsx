@@ -4,8 +4,8 @@ import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, { runOnJS, useAnimatedProps, useSharedValue } from 'react-native-reanimated';
 import Svg, { Path } from 'react-native-svg';
 import { useSignature } from '../signature.context';
-import { SINGLE_TAP_MAX_DISTANCE } from '../signature.types';
-import { createElementFromPathGesture } from '../utils/canvas.utils';
+import { SINGLE_TAP_MAX_DISTANCE } from '../utils/constants';
+import { createElementFromPathGesture } from '../utils/svg-builders';
 
 const AnimatedPath = Animated.createAnimatedComponent(Path);
 const AnimatedSvg = Animated.createAnimatedComponent(Svg);
