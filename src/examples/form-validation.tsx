@@ -29,14 +29,10 @@ const FormWithSignature = () => {
         strokeColor="black"
         strokeWidth={1}
       />
-      
-      <Button 
-        title="Submit Form" 
-        onPress={handleSubmit}
-        disabled={!hasSignature}
-      />
+
+      <Button title="Submit Form" onPress={handleSubmit} disabled={!hasSignature} />
     </View>
   );
 };
 
-export default FormWithSignature; 
+export default FormWithSignature;

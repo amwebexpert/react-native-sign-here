@@ -22,7 +22,7 @@ const SignatureScreen = () => {
         ref={signatureRef}
         strokeColor="black"
         strokeWidth={1}
-        onChange={(state) => {
+        onChange={state => {
           console.log('Drawing state changed:', state);
         }}
       />
@@ -32,4 +32,4 @@ const SignatureScreen = () => {
   );
 };
 
-export default SignatureScreen; 
+export default SignatureScreen;

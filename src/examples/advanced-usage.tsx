@@ -27,16 +27,9 @@ const AdvancedSignatureScreen = () => {
 
   return (
     <View style={{ flex: 1, padding: 20 }}>
-      <Text style={{ fontSize: 18, marginBottom: 10 }}>
-        {isSigned ? 'Signature captured' : 'Please sign below'}
-      </Text>
+      <Text style={{ fontSize: 18, marginBottom: 10 }}>{isSigned ? 'Signature captured' : 'Please sign below'}</Text>
 
-      <DrawHere
-        ref={signatureRef}
-        strokeColor="#2E86AB"
-        strokeWidth={3}
-        onChange={handleSignatureChange}
-      />
+      <DrawHere ref={signatureRef} strokeColor="#2E86AB" strokeWidth={3} onChange={handleSignatureChange} />
 
       <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 20 }}>
         <Button title="Undo" onPress={handleUndo} />
