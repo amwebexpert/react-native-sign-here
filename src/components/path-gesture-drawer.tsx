@@ -25,28 +25,25 @@ export const PathGestureDrawer: React.FC<PathGestureDrawerProps> = ({
 }) => {
   const panGesture = Gesture.Pan()
     .minDistance(SINGLE_TAP_MAX_DISTANCE + 1)
+    .runOnJS(true)
     .onStart(({ x, y }) => {
-      'worklet';
       gesturePoints.value = [`M ${x},${y}`]; // M = "move to"
     })
     .onChange(({ x, y }) => {
-      'worklet';
       gesturePoints.value = [...gesturePoints.value, `L ${x},${y}`]; // L = "line to"
     })
     .onEnd((_event, _ctx) => {
-      'worklet';
-      runOnJS(addElementFromGesture)(gesturePoints.value.join(' '));
+      addElementFromGesture(gesturePoints.value.join(' '));
     });
 
   const tapGesture = Gesture.Tap()
     .maxDistance(SINGLE_TAP_MAX_DISTANCE)
+    .runOnJS(true)
     .onStart(({ x, y }) => {
-      'worklet';
       gesturePoints.value = [`M ${x},${y} L ${x},${y}`]; // M = "move to"
     })
     .onEnd((_event, _ctx) => {
-      'worklet';
-      runOnJS(addElementFromGesture)(gesturePoints.value.join(' '));
+      addElementFromGesture(gesturePoints.value.join(' '));
     });
 
   const animatedProps = useAnimatedProps(() => ({ d: gesturePoints.value.join(' ') }));

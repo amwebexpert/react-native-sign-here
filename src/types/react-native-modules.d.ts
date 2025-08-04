@@ -1,5 +1,5 @@
 declare module 'react-native-svg' {
-  import { Component } from 'react';
+  import React, { Component } from 'react';
   
   export interface SvgProps {
     width?: number | string;
@@ -36,7 +36,7 @@ declare module 'react-native-svg' {
 }
 
 declare module 'react-native-gesture-handler' {
-  import { Component } from 'react';
+  import React, { Component } from 'react';
   
   export interface GestureDetectorProps {
     gesture: any;
@@ -53,7 +53,7 @@ declare module 'react-native-gesture-handler' {
 }
 
 declare module 'react-native-reanimated' {
-  import { Component } from 'react';
+  import React, { Component } from 'react';
   
   export interface SharedValue<T> {
     value: T;

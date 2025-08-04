@@ -68,6 +68,7 @@ export default [
       "@typescript-eslint/explicit-function-return-type": "off",
       "@typescript-eslint/explicit-module-boundary-types": "off",
       "@typescript-eslint/no-empty-function": "off",
+      "@typescript-eslint/ban-ts-comment": "off", // Permettre les commentaires @ts-ignore
 
       // Variables non utilisées - plus permissives
       "no-unused-vars": "off", // Désactivé pour accepter le style de l'entreprise

@@ -27,6 +27,9 @@ jobs:
       - name: Install Yarn and dependencies
         uses: mskelton/setup-yarn@v2.0.0
 
+      - name: Run linter
+        run: yarn lint
+
       - name: Run unit tests
         run: yarn test
 
