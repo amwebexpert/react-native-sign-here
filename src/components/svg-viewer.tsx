@@ -12,7 +12,7 @@ interface SvgViewerProps {
 
 const SvgViewer: React.FC<SvgViewerProps> = ({ elements = [] }) => (
   <Svg style={styles.container} height="100%" width="100%">
-    {elements.map((item) => {
+    {elements.map(item => {
       if (isPath(item)) {
         return (
           <PathViewer

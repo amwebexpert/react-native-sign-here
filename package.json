@@ -1,6 +1,6 @@
 {
   "name": "@amwebexpert/react-native-sign-here",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -14,6 +14,9 @@
     "clean:node": "npx rimraf node_modules yarn.lock",
     "build": "tsc",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
+    "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
     "test": "jest"
   },
   "dependencies": {

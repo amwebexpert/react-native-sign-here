@@ -124,8 +124,7 @@ export const SignatureProvider: React.FC<SignatureProviderProps> = ({ children }
   const clear = () => dispatch({ type: 'CLEAR' });
   const reset = (elements?: SvgElement[]) => dispatch({ type: 'RESET', payload: elements });
   const setDirty = (isDirty: boolean) => dispatch({ type: 'SET_DIRTY', payload: isDirty });
-  const addDrawElement = (element: SvgElement) =>
-    dispatch({ type: 'ADD_ELEMENT', payload: element });
+  const addDrawElement = (element: SvgElement) => dispatch({ type: 'ADD_ELEMENT', payload: element });
 
   // Computed values
   const hasUndoHistory = state.undoHistory.length > 0;

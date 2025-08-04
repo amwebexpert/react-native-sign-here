@@ -28,11 +28,7 @@ export const isSimpleTapPath = (d = '') => {
   return distance < SINGLE_TAP_MAX_DISTANCE;
 };
 
-export const createElementFromPathGesture = ({
-  d = '',
-  strokeColor = 'black',
-  strokeWidth = 1,
-}): SvgElement => {
+export const createElementFromPathGesture = ({ d = '', strokeColor = 'black', strokeWidth = 1 }): SvgElement => {
   if (isSimpleTapPath(d)) {
     return buildCircleElementFromSingleTapPath({ d, strokeColor, strokeWidth });
   }

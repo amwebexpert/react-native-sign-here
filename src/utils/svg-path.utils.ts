@@ -32,12 +32,7 @@ export const fromCoordinatesArray = (points: { x: number; y: number }[]): string
 
 export const normalizePath = (d = '') => d?.trim().toUpperCase() ?? '';
 
-export const buildPathElement = ({
-  d = '',
-  strokeColor = 'black',
-  strokeWidth = 1,
-  fill = 'none',
-}): SvgPathElement => {
+export const buildPathElement = ({ d = '', strokeColor = 'black', strokeWidth = 1, fill = 'none' }): SvgPathElement => {
   const id = Date.now();
   const simplifiedPath = simplifyPath({ d });
 

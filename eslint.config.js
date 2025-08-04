@@ -90,8 +90,8 @@ export default [
       "react-native/no-color-literals": "off",
       "react-native/no-raw-text": "off",
 
-      // Prettier - désactivé pour accepter le style existant
-      "prettier/prettier": "off",
+      // Prettier - activated to allow prettier to fix the code
+      "prettier/prettier": ["error", { "printWidth": 120 }],
     },
     settings: {
       react: {

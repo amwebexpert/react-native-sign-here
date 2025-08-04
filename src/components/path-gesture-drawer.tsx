@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { type ColorValue, StyleSheet, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
-import Animated, { type SharedValue, runOnJS, useAnimatedProps } from 'react-native-reanimated';
+import Animated, { runOnJS, useAnimatedProps, useSharedValue } from 'react-native-reanimated';
 import Svg, { Path } from 'react-native-svg';
+import { useSignature } from '../signature.context';
 import { SINGLE_TAP_MAX_DISTANCE } from '../signature.types';
+import { createElementFromPathGesture } from '../utils/canvas.utils';
 
 const AnimatedPath = Animated.createAnimatedComponent(Path);
 const AnimatedSvg = Animated.createAnimatedComponent(Svg);
@@ -12,41 +14,70 @@ interface PathGestureDrawerProps {
   strokeColor?: ColorValue;
   strokeWidth?: number;
   fill?: ColorValue;
-  addElementFromGesture?: (path: string) => void;
-  gesturePoints?: SharedValue<string[]>;
 }
 
 export const PathGestureDrawer: React.FC<PathGestureDrawerProps> = ({
   strokeColor = 'black',
   strokeWidth = 1,
   fill = 'none',
-  addElementFromGesture = () => {},
-  gesturePoints = { value: [] },
 }) => {
+  const { state, addDrawElement, setDirty } = useSignature();
+  const { isDrawGestureDirty } = state;
+  const currentPath = useSharedValue('');
+
+  useEffect(() => {
+    if (isDrawGestureDirty) {
+      currentPath.value = '';
+      setDirty(false);
+    }
+  }, [isDrawGestureDirty, setDirty]);
+
+  const addElementFromGesture = (d = '') => {
+    const newElement = createElementFromPathGesture({ d, strokeColor: strokeColor as string, strokeWidth });
+    addDrawElement(newElement);
+  };
+
+  const finalizePath = (pathString: string) => addElementFromGesture(pathString);
+
   const panGesture = Gesture.Pan()
     .minDistance(SINGLE_TAP_MAX_DISTANCE + 1)
-    .runOnJS(true)
     .onStart(({ x, y }) => {
-      gesturePoints.value = [`M ${x},${y}`]; // M = "move to"
+      'worklet';
+
+      const pathSegment = `M ${x},${y}`; // M = "move to"
+      currentPath.value = pathSegment;
     })
-    .onChange(({ x, y }) => {
-      gesturePoints.value = [...gesturePoints.value, `L ${x},${y}`]; // L = "line to"
+    .onUpdate(({ x, y }) => {
+      'worklet';
+
+      const pathSegment = `L ${x},${y}`; // L = "line to"
+      currentPath.value = `${currentPath.value} ${pathSegment}`;
     })
-    .onEnd((_event, _ctx) => {
-      addElementFromGesture(gesturePoints.value.join(' '));
+    .onEnd(() => {
+      'worklet';
+
+      runOnJS(finalizePath)(currentPath.value);
     });
 
   const tapGesture = Gesture.Tap()
     .maxDistance(SINGLE_TAP_MAX_DISTANCE)
-    .runOnJS(true)
     .onStart(({ x, y }) => {
-      gesturePoints.value = [`M ${x},${y} L ${x},${y}`]; // M = "move to"
+      'worklet';
+
+      const pathSegment = `M ${x},${y} L ${x},${y}`;
+      currentPath.value = pathSegment;
     })
-    .onEnd((_event, _ctx) => {
-      addElementFromGesture(gesturePoints.value.join(' '));
+    .onEnd(() => {
+      'worklet';
+
+      runOnJS(finalizePath)(currentPath.value);
     });
 
-  const animatedProps = useAnimatedProps(() => ({ d: gesturePoints.value.join(' ') }));
+  const animatedProps = useAnimatedProps(() => {
+    'worklet';
+
+    return { d: currentPath.value };
+  });
 
   return (
     <View style={styles.container}>
@@ -58,6 +89,8 @@ export const PathGestureDrawer: React.FC<PathGestureDrawerProps> = ({
               fill={fill}
               stroke={strokeColor}
               strokeWidth={strokeWidth}
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </AnimatedSvg>
         </Animated.View>

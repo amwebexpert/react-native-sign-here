@@ -27,8 +27,6 @@ export interface SvgCircleElement extends SvgElement {
   radius: number;
 }
 
-export const isPath = (element?: SvgElement): element is SvgPathElement =>
-  element?.type === SvgElementType.path;
+export const isPath = (element?: SvgElement): element is SvgPathElement => element?.type === SvgElementType.path;
 
-export const isCircle = (element?: SvgElement): element is SvgCircleElement =>
-  element?.type === SvgElementType.circle;
+export const isCircle = (element?: SvgElement): element is SvgCircleElement => element?.type === SvgElementType.circle;

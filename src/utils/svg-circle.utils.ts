@@ -1,10 +1,10 @@
-import pathParser from "parse-svg-path";
-import { SvgCircleElement, SvgElementType } from "../signature.types";
-import { normalizePath } from "./svg-path.utils";
+import pathParser from 'parse-svg-path';
+import { SvgCircleElement, SvgElementType } from '../signature.types';
+import { normalizePath } from './svg-path.utils';
 
 export const buildCircleElementFromSingleTapPath = ({
-  d = "",
-  strokeColor = "black",
+  d = '',
+  strokeColor = 'black',
   strokeWidth = 1,
 }): SvgCircleElement => {
   const commands = pathParser(normalizePath(d));
@@ -21,4 +21,4 @@ export const buildCircleElementFromSingleTapPath = ({
     strokeWidth: 0,
     id: Date.now(),
   };
-}; 
+};
