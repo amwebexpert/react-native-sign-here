@@ -7,9 +7,9 @@ import SvgViewer from './svg-viewer';
 
 export const DrawingCanvas = forwardRef<DrawHereRef, DrawHereProps>(
   ({ strokeColor = 'black', strokeWidth = 1 }, ref) => {
-    const { state, clear, undo, reset } = useDrawing();
+    const { state, clear, undo, reset, exportAs, importSvg } = useDrawing();
 
-    useImperativeHandle(ref, () => ({ clear, undo, reset }));
+    useImperativeHandle(ref, () => ({ clear, undo, reset, exportAs, importSvg }));
 
     return (
       <>

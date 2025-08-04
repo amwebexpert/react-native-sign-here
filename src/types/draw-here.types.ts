@@ -70,10 +70,17 @@ export interface DrawHereProps {
   onChange?: (state: DrawingState) => void;
 }
 
+export enum ExportFormat {
+  SVG = 'svg',
+  // PNG = 'png', // Not supported yet (stay tuned)
+}
+
 export interface DrawHereRef {
   clear: () => void;
   undo: () => void;
   reset: (elements?: SvgElement[]) => void;
+  exportAs: (format: ExportFormat) => Promise<string>;
+  importSvg: (svg: string) => void;
 }
 
 // SignHere is a wrapper around DrawHere that may add additional functionality later
