@@ -1,8 +1,8 @@
 import { XMLParser } from 'fast-xml-parser';
 
-import { SvgElement, SvgElementType } from './types';
 import { DEFAULT_CANVAS_DIMENSIONS } from './constants';
 import { CIRCLE_SERIALIZER, ELLIPSE_SERIALIZER, PATH_SERIALIZER } from './svg-serializers';
+import { SvgElement, SvgElementType } from '../types/draw-here.types';
 
 const { width, height } = DEFAULT_CANVAS_DIMENSIONS;
 const DEFAULT_VIEW_BOX = `0 0 ${width} ${height}`;

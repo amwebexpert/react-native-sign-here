@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { Circle } from 'react-native-svg';
 
 interface CircleViewerProps {
@@ -10,7 +10,7 @@ interface CircleViewerProps {
   fill?: string;
 }
 
-export const CircleViewer: React.FC<CircleViewerProps> = ({
+export const CircleViewer: FunctionComponent<CircleViewerProps> = ({
   cx = 0,
   cy = 0,
   radius = 0,

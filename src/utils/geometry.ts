@@ -1,6 +1,5 @@
-import { AspectRatio, BoundingBox, CanvasDimensions, XYCoordinates } from './types';
-import { ZERO_BOUNDING_BOX } from './constants';
-import { DEFAULT_CANVAS_DIMENSIONS, SVG_SNAPSHOT_SCALE_FACTOR, ZERO_COORDINATES } from './constants';
+import { DEFAULT_CANVAS_DIMENSIONS, SVG_SNAPSHOT_SCALE_FACTOR, ZERO_BOUNDING_BOX, ZERO_COORDINATES } from './constants';
+import { AspectRatio, BoundingBox, CanvasDimensions, XYCoordinates } from '../types/draw-here.types';
 
 type MaxDimensionsForAspectRatioInputTypes = {
   width: number;

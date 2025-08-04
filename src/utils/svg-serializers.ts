@@ -1,14 +1,5 @@
-import {
-  SvgCircleElement,
-  SvgElement,
-  SvgElementType,
-  SvgEllipseElement,
-  SvgPathElement,
-  isCircle,
-  isEllipse,
-  isPath,
-} from './types';
-import { toDeviceIndependentPixel, toDeviceDependentPixel } from './path-utils';
+import { toDeviceDependentPixel, toDeviceIndependentPixel } from './path-utils';
+import { SvgElement, SvgElementType, isCircle, isEllipse, isPath } from '../types/draw-here.types';
 
 export type XmlAttributeName = `@_${string}`;
 export type XmlAttributes = Record<XmlAttributeName, string>;

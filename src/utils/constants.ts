@@ -1,5 +1,5 @@
 import { PixelRatio, Platform } from 'react-native';
-import { DEFAULT_ASPECT_RATIO } from './types';
+import { DEFAULT_ASPECT_RATIO } from '../types/draw-here.types';
 
 // @see https://github.com/software-mansion/react-native-svg/issues/855#issuecomment-445340830
 export const SVG_SNAPSHOT_SCALE_FACTOR = Platform.select({ ios: 1, android: 1 / PixelRatio.get() }) ?? 1;

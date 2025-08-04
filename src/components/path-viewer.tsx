@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { Path } from 'react-native-svg';
 
 interface PathViewerProps {
@@ -8,7 +8,7 @@ interface PathViewerProps {
   fill?: string;
 }
 
-export const PathViewer: React.FC<PathViewerProps> = ({
+export const PathViewer: FunctionComponent<PathViewerProps> = ({
   d = '',
   strokeColor = 'black',
   strokeWidth = 1,

@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { FunctionComponent, useEffect } from 'react';
 import { type ColorValue, StyleSheet, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, { runOnJS, useAnimatedProps, useSharedValue } from 'react-native-reanimated';
 import Svg, { Path } from 'react-native-svg';
-import { useSignature } from '../signature.context';
+import { useDrawing } from '../draw.context';
 import { SINGLE_TAP_MAX_DISTANCE } from '../utils/constants';
 import { createElementFromPathGesture } from '../utils/svg-builders';
 
@@ -16,12 +16,12 @@ interface PathGestureDrawerProps {
   fill?: ColorValue;
 }
 
-export const PathGestureDrawer: React.FC<PathGestureDrawerProps> = ({
+export const PathGestureDrawer: FunctionComponent<PathGestureDrawerProps> = ({
   strokeColor = 'black',
   strokeWidth = 1,
   fill = 'none',
 }) => {
-  const { state, addDrawElement, setDirty } = useSignature();
+  const { state, addDrawElement, setDirty } = useDrawing();
   const { isDrawGestureDirty } = state;
   const currentPath = useSharedValue('');
 

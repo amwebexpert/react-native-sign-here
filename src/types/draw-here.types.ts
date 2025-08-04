@@ -1,3 +1,5 @@
+import { DrawingState } from '../draw.context';
+
 export type AspectRatio = { width: number; height: number };
 export const DEFAULT_ASPECT_RATIO: Readonly<AspectRatio> = { width: 9, height: 16 };
 
@@ -61,3 +63,19 @@ export enum CanvasMode {
   SELECTOR = 'SELECTOR',
   TRANSFORM = 'TRANSFORM',
 }
+
+export interface DrawHereProps {
+  strokeColor?: string;
+  strokeWidth?: number;
+  onChange?: (state: DrawingState) => void;
+}
+
+export interface DrawHereRef {
+  clear: () => void;
+  undo: () => void;
+  reset: (elements?: SvgElement[]) => void;
+}
+
+// SignHere is a wrapper around DrawHere that may add additional functionality later
+export interface SignHereRef extends DrawHereRef {}
+export interface SignHereProps extends DrawHereProps {}

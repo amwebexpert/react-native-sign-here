@@ -1,9 +1,9 @@
 import pathParser from 'parse-svg-path';
 
-import { SvgCircleElement, SvgElement, SvgElementType, SvgPathElement } from './types';
-import { normalizePath, simplifyPath } from './path-utils';
-import { computeDistance } from './geometry';
 import { SINGLE_TAP_MAX_DISTANCE } from './constants';
+import { computeDistance } from './geometry';
+import { normalizePath, simplifyPath } from './path-utils';
+import { SvgCircleElement, SvgElement, SvgElementType, SvgPathElement } from '../types/draw-here.types';
 
 export const createElementFromPathGesture = ({ d = '', strokeColor = 'black', strokeWidth = 1 }): SvgElement => {
   if (isSimpleTapPath(d)) {

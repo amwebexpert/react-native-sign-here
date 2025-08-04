@@ -1,21 +1,21 @@
-import React, { createContext, ReactNode, useContext, useReducer } from 'react';
-import { SvgElement } from './utils/types';
+import React, { createContext, ReactNode, useContext, useEffect, useReducer } from 'react';
+import { SvgElement } from './types/draw-here.types';
 
-interface SignatureState {
+export interface DrawingState {
   elements: SvgElement[];
   undoHistory: SvgElement[][];
   isDrawGestureDirty: boolean;
 }
 
-type SignatureAction =
+type DrawingAction =
   | { type: 'ADD_ELEMENT'; payload: SvgElement }
   | { type: 'UNDO' }
   | { type: 'CLEAR' }
   | { type: 'RESET'; payload?: SvgElement[] }
   | { type: 'SET_DIRTY'; payload: boolean };
 
-interface SignatureContextType {
-  state: SignatureState;
+interface DrawingContextType {
+  state: DrawingState;
   addDrawElement: (element: SvgElement) => void;
   undo: () => void;
   clear: () => void;
@@ -28,24 +28,24 @@ interface SignatureContextType {
   isCanvasEmpty: boolean;
 }
 
-const initialState: SignatureState = {
+const initialState: DrawingState = {
   elements: [],
   undoHistory: [],
   isDrawGestureDirty: false,
 };
 
 interface AddElementToStateArgs {
-  state: SignatureState;
+  state: DrawingState;
   newElement: SvgElement;
 }
 
-const addElementToState = ({ state, newElement }: AddElementToStateArgs): SignatureState => ({
+const addElementToState = ({ state, newElement }: AddElementToStateArgs): DrawingState => ({
   ...state,
   undoHistory: [...state.undoHistory, state.elements],
   elements: [...state.elements, newElement],
 });
 
-const undoLastAction = (state: SignatureState): SignatureState => {
+const undoLastAction = (state: DrawingState): DrawingState => {
   if (state.undoHistory.length === 0) {
     return state;
   }
@@ -59,7 +59,7 @@ const undoLastAction = (state: SignatureState): SignatureState => {
   };
 };
 
-const clearAllElements = (state: SignatureState): SignatureState => ({
+const clearAllElements = (state: DrawingState): DrawingState => ({
   ...state,
   elements: [],
   undoHistory: [],
@@ -67,11 +67,11 @@ const clearAllElements = (state: SignatureState): SignatureState => ({
 });
 
 interface ResetToElementsArgs {
-  state: SignatureState;
+  state: DrawingState;
   elements?: SvgElement[];
 }
 
-const resetToElements = ({ state, elements = [] }: ResetToElementsArgs): SignatureState => ({
+const resetToElements = ({ state, elements = [] }: ResetToElementsArgs): DrawingState => ({
   ...state,
   elements,
   undoHistory: [],
@@ -79,16 +79,16 @@ const resetToElements = ({ state, elements = [] }: ResetToElementsArgs): Signatu
 });
 
 interface SetDirtyStateArgs {
-  state: SignatureState;
+  state: DrawingState;
   isDirty: boolean;
 }
 
-const setDirtyState = ({ state, isDirty }: SetDirtyStateArgs): SignatureState => ({
+const setDirtyState = ({ state, isDirty }: SetDirtyStateArgs): DrawingState => ({
   ...state,
   isDrawGestureDirty: isDirty,
 });
 
-const signatureReducer = (state: SignatureState, action: SignatureAction): SignatureState => {
+const drawingReducer = (state: DrawingState, action: DrawingAction): DrawingState => {
   switch (action.type) {
     case 'ADD_ELEMENT':
       return addElementToState({ state, newElement: action.payload });
@@ -111,14 +111,15 @@ const signatureReducer = (state: SignatureState, action: SignatureAction): Signa
   }
 };
 
-const SignatureContext = createContext<SignatureContextType | undefined>(undefined);
+const DrawingContext = createContext<DrawingContextType | undefined>(undefined);
 
-interface SignatureProviderProps {
+interface DrawingProviderProps {
   children: ReactNode;
+  onChange?: (state: DrawingState) => void;
 }
 
-export const SignatureProvider: React.FC<SignatureProviderProps> = ({ children }) => {
-  const [state, dispatch] = useReducer(signatureReducer, initialState);
+export const DrawingProvider: React.FC<DrawingProviderProps> = ({ children, onChange }) => {
+  const [state, dispatch] = useReducer(drawingReducer, initialState);
 
   const undo = () => dispatch({ type: 'UNDO' });
   const clear = () => dispatch({ type: 'CLEAR' });
@@ -131,7 +132,11 @@ export const SignatureProvider: React.FC<SignatureProviderProps> = ({ children }
   const elementsCount = state.elements.length;
   const isCanvasEmpty = elementsCount === 0;
 
-  const contextValue: SignatureContextType = {
+  useEffect(() => {
+    onChange?.(state);
+  }, [state, onChange]);
+
+  const contextValue: DrawingContextType = {
     state,
     addDrawElement,
     undo,
@@ -143,13 +148,13 @@ export const SignatureProvider: React.FC<SignatureProviderProps> = ({ children }
     isCanvasEmpty,
   };
 
-  return <SignatureContext.Provider value={contextValue}>{children}</SignatureContext.Provider>;
+  return <DrawingContext.Provider value={contextValue}>{children}</DrawingContext.Provider>;
 };
 
-export const useSignature = (): SignatureContextType => {
-  const context = useContext(SignatureContext);
+export const useDrawing = (): DrawingContextType => {
+  const context = useContext(DrawingContext);
   if (context === undefined) {
-    throw new Error('useSignature must be used within a SignatureProvider');
+    throw new Error('useDrawing must be used within a DrawingProvider');
   }
 
   return context;

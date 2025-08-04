@@ -1,8 +1,8 @@
 import pathParser from 'parse-svg-path';
 import simplify from 'simplify-js';
 
-import { XYCoordinates } from './types';
 import { PathSimplificationConfigs } from './constants';
+import { XYCoordinates } from '../types/draw-here.types';
 
 export const normalizePath = (d = '') => d?.trim().toUpperCase() ?? '';
 
