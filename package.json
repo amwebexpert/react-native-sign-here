@@ -10,6 +10,19 @@
   "repository": "https://github.com/amwebexpert/react-native-sign-here.git",
   "author": "André Masson <amwebexpert@gmail.com>",
   "license": "MIT",
+  "keywords": [
+    "react-native",
+    "signature",
+    "signature-pad",
+    "drawing",
+    "canvas",
+    "svg",
+    "typescript",
+    "handwriting",
+    "digital-signature",
+    "gesture-handler",
+    "reanimated"
+  ],
   "scripts": {
     "clean:node": "npx rimraf node_modules yarn.lock",
     "build": "tsc",

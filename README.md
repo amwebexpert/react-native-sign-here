@@ -2,13 +2,14 @@
 
 > *Under active development*
 > 
-> ⚠️ This project is currently under development and is **NOT READY** for production use. 
+> ⚠️ This project is currently under development ⚠️
 > Features may be incomplete, unstable, or subject to breaking changes.
 
-[![License](https://img.shields.io/npm/l/react-native-sign-here)](./LICENSE)
+[![npm](https://img.shields.io/npm/v/@amwebexpert/react-native-sign-here)](https://www.npmjs.com/package/@amwebexpert/react-native-sign-here)
+[![npm downloads](https://img.shields.io/npm/dm/@amwebexpert/react-native-sign-here)](https://www.npmjs.com/package/@amwebexpert/react-native-sign-here)
+[![License](https://img.shields.io/npm/l/@amwebexpert/react-native-sign-here)](./LICENSE)
 
-
-A gesture handler signature pad for React Native with SVG support and smooth drawing capabilities. Perfect for capturing signatures in mobile applications having the following native dependencies:
+A React Native signature pad with SVG support and smooth drawing capabilities. Perfect for capturing digital signatures and handwriting in mobile applications with the following native dependencies:
 
 - react-native-svg
 - react-native-gesture-handler
@@ -20,11 +21,11 @@ If this project has helped you out, please support us with a star 🌟.
 
 - Smooth signature drawing with gesture handling
 - SVG-based rendering for crisp signatures
-- Support for both iOS and Android
-- Built-in TypeScript definitions
+- Support for both `iOS` and `Android`
+- Built-in `TypeScript` definitions
 - Customizable stroke width and color
-- Clear and reset functionality
-- Export signatures as SVG paths
+- Undo, Clear and Reset features
+- Import & Export signatures as SVG paths
 
 ## Screenshots
 
