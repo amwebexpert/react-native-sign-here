@@ -300,28 +300,10 @@ The library also exports various utility functions for working with SVG elements
 - `isCircle(element)`: Type guard for circle elements  
 - `isEllipse(element)`: Type guard for ellipse elements
 
-## Usefull infos & commands
+## References
 
-npm module public link:
-- https://www.npmjs.com/package/@amwebexpert/react-native-sign-here
-
-Whenever we publish, due to the @ package prefix we need to be explicit regarding public access:
-- `npm publish --access=public`
-
-Token generation on npmjs:
-- `npm login`
-- then goto https://www.npmjs.com/settings/amwebexpert/tokens
-  - Generate New Token
-  - Granular Access Token
-- then on Github project, for the GitHub action to be able to publish:
-  - goto https://github.com/VikingLichens/ci-cd-trials/settings/secrets/actions
-  - add a repository secret (tokenname + value)
-  - use it within the github action like so: `secrets.<token_name_here>`
-
-
-## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests.
+* [Usefull infos & commands](docs/usefull-commands.md)
+* [Contributing](docs/CONTRIBUTING.md)
 
 ## License
 
