@@ -28,13 +28,10 @@ If this project has helped you out, please support us with a star 🌟.
 
 ## Screenshots
 
-### iOS
+iOS                                       | Android
+------------------------------------------|----------------------------------------------
+<img src="docs/images/example-ios.png" /> | <img src="docs/images/example-android.jpg" />
 
-TBD
-
-### Android
-
-TBD
 
 ## Setup
 
@@ -220,21 +217,21 @@ The main component for capturing signatures and drawings.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `strokeColor` | `string` | `"black"` | Color of the drawing stroke |
-| `strokeWidth` | `number` | `1` | Width of the drawing stroke |
-| `onChange` | `(state: DrawingState) => void` | `undefined` | Callback fired when drawing state changes |
+| Prop          | Type                            | Default     | Description                               |
+|---------------|---------------------------------|-------------|-------------------------------------------|
+| `strokeColor` | `string`                        | `"black"`   | Color of the drawing stroke               |
+| `strokeWidth` | `number`                        | `1`         | Width of the drawing stroke               |
+| `onChange`    | `(state: DrawingState) => void` | `undefined` | Callback fired when drawing state changes |
 
 #### Ref Methods
 
-| Method | Parameters | Return Type | Description |
-|--------|------------|-------------|-------------|
-| `clear()` | - | `void` | Clears all drawings from the canvas |
-| `undo()` | - | `void` | Undoes the last drawing action |
-| `reset(elements?)` | `SvgElement[]` (optional) | `void` | Resets the canvas, optionally with new elements |
-| `exportAs(format)` | `ExportFormat` | `Promise<string>` | Exports the drawing as SVG string |
-| `importSvg(svg)` | `string` | `void` | Imports an SVG string into the canvas |
+| Method             | Parameters                | Return Type       | Description                                     |
+|--------------------|---------------------------|-------------------|-------------------------------------------------|
+| `clear()`          | -                         | `void`            | Clears all drawings from the canvas             |
+| `undo()`           | -                         | `void`            | Undoes the last drawing action                  |
+| `reset(elements?)` | `SvgElement[]` (optional) | `void`            | Resets the canvas, optionally with new elements |
+| `exportAs(format)` | `ExportFormat`            | `Promise<string>` | Exports the drawing as SVG string               |
+| `importSvg(svg)`   | `string`                  | `void`            | Imports an SVG string into the canvas           |
 
 ### Types
 
