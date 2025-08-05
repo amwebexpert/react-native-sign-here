@@ -6,7 +6,8 @@
 
 [![npm](https://img.shields.io/npm/v/@amwebexpert/react-native-sign-here)](https://www.npmjs.com/package/@amwebexpert/react-native-sign-here)
 [![npm downloads](https://img.shields.io/npm/dm/@amwebexpert/react-native-sign-here)](https://www.npmjs.com/package/@amwebexpert/react-native-sign-here)
-[![License](https://img.shields.io/npm/l/@amwebexpert/react-native-sign-here)](./LICENSE)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/amwebexpert/react-native-sign-here)](https://github.com/amwebexpert/react-native-sign-here/releases)
+[![License](https://img.shields.io/npm/l/@amwebexpert/react-native-sign-here)](./LICENSE) ![GitHub last commit](https://img.shields.io/github/last-commit/amwebexpert/react-native-sign-here)
 
 A React Native signature pad with SVG support and smooth drawing capabilities. Perfect for capturing digital signatures and handwriting in mobile applications with the following native dependencies:
 
@@ -37,22 +38,16 @@ iOS                                       | Android
 
 ### Install
 
+To install the library and all its peer dependencies, run one of the following commands:
+
 ```bash
-yarn add react-native-sign-here
+yarn add react-native-sign-here react-native-gesture-handler react-native-reanimated react-native-svg
 ```
 
 or
 
 ```bash
-npm install --save react-native-sign-here
-```
-
-### Peer Dependencies
-
-Make sure you have the following peer dependencies installed:
-
-```bash
-yarn add react-native-gesture-handler react-native-reanimated react-native-svg
+npm install --save react-native-sign-here react-native-gesture-handler react-native-reanimated react-native-svg
 ```
 
 ### Basic Usage
