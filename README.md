@@ -1,17 +1,17 @@
 # react-native-sign-here
 
+[![npm](https://img.shields.io/npm/v/@amwebexpert/react-native-sign-here)](https://www.npmjs.com/package/@amwebexpert/react-native-sign-here)
+[![npm downloads](https://img.shields.io/npm/dm/@amwebexpert/react-native-sign-here)](https://www.npmjs.com/package/@amwebexpert/react-native-sign-here) [![License](https://img.shields.io/npm/l/@amwebexpert/react-native-sign-here)](./LICENSE) ![GitHub last commit](https://img.shields.io/github/last-commit/amwebexpert/react-native-sign-here) ![Latest tag](https://img.shields.io/github/v/tag/amwebexpert/react-native-sign-here)
+
 > *Under active development*
 > 
 > ⚠️ This project is currently under development: Features may be incomplete, unstable, or subject to breaking changes.
 
-[![npm](https://img.shields.io/npm/v/@amwebexpert/react-native-sign-here)](https://www.npmjs.com/package/@amwebexpert/react-native-sign-here)
-[![npm downloads](https://img.shields.io/npm/dm/@amwebexpert/react-native-sign-here)](https://www.npmjs.com/package/@amwebexpert/react-native-sign-here) [![License](https://img.shields.io/npm/l/@amwebexpert/react-native-sign-here)](./LICENSE) ![GitHub last commit](https://img.shields.io/github/last-commit/amwebexpert/react-native-sign-here) ![Latest tag](https://img.shields.io/github/v/tag/amwebexpert/react-native-sign-here)
-
 A React Native signature pad with SVG support and smooth drawing capabilities. Perfect for capturing digital signatures and handwriting in mobile applications with the following native dependencies:
 
-- react-native-svg
-- react-native-gesture-handler
-- react-native-reanimated
+- [`react-native-svg`](https://www.npmjs.com/package/react-native-svg)
+- [`react-native-gesture-handler`](https://www.npmjs.com/package/react-native-gesture-handler)
+- [`react-native-reanimated`](https://www.npmjs.com/package/react-native-reanimated)
 
 If this project has helped you out, please support us with a star 🌟.
 
