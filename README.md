@@ -30,7 +30,7 @@ If this project has helped you out, please support us with a star 🌟.
 
 iOS                                       | Android
 ------------------------------------------|----------------------------------------------
-<img src="docs/images/example-ios.png" /> | <img src="docs/images/example-android.jpg" />
+<img width="300" src="docs/images/example-ios.png" /> | <img width="300" src="docs/images/example-android.jpg" />
 
 
 ## Setup
