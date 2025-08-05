@@ -2,8 +2,7 @@
 
 > *Under active development*
 > 
-> ⚠️ This project is currently under development ⚠️
-> Features may be incomplete, unstable, or subject to breaking changes.
+> ⚠️ This project is currently under development: Features may be incomplete, unstable, or subject to breaking changes.
 
 [![npm](https://img.shields.io/npm/v/@amwebexpert/react-native-sign-here)](https://www.npmjs.com/package/@amwebexpert/react-native-sign-here)
 [![npm downloads](https://img.shields.io/npm/dm/@amwebexpert/react-native-sign-here)](https://www.npmjs.com/package/@amwebexpert/react-native-sign-here)
