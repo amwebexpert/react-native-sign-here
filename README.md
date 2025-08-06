@@ -12,6 +12,12 @@ A React Native signature pad with SVG support and smooth drawing capabilities. P
 - [`react-native-gesture-handler`](https://www.npmjs.com/package/react-native-gesture-handler)
 - [`react-native-reanimated`](https://www.npmjs.com/package/react-native-reanimated)
 
+## Screenshots
+
+iOS                                                   | Android
+------------------------------------------------------|----------------------------------------------------------
+<img width="300" src="docs/images/example-ios.png" /> | <img width="300" src="docs/images/example-android.jpg" />
+
 ## Why Choose `react-native-sign-here`?
 
 ### Key Advantages
@@ -38,12 +44,6 @@ If this project has helped you, please support us with a GitHub star 🌟.
 
 - [react-native-signature-canvas](https://npmjs.com/package/react-native-signature-canvas)
 - [react-native-canvas](https://npmjs.com/package/react-native-canvas)
-
-## Screenshots
-
-iOS                                                   | Android
-------------------------------------------------------|----------------------------------------------------------
-<img width="300" src="docs/images/example-ios.png" /> | <img width="300" src="docs/images/example-android.jpg" />
 
 
 ## Setup
@@ -159,7 +159,7 @@ const AdvancedSignatureScreen = () => {
 
 ### Even more advanced usage 
 
-- [Expo SDK](https://github.com/amwebexpert/poc-archiver-expo/blob/master/src/features/experiments/native-signature-pad.tsx)
+- [Expo SDK demo screen](https://github.com/amwebexpert/poc-archiver-expo/blob/master/src/features/experiments/native-signature-pad.tsx)
 
 ## Examples
 
