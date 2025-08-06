@@ -1,5 +1,5 @@
 import React, { createContext, ReactNode, useContext, useEffect, useReducer } from 'react';
-import { SvgElement } from './types/draw-here.types';
+import { Dimensions, SvgElement } from './types/draw-here.types';
 import { fromSvgFormat, toSvgFormat } from './utils/svg-serialization';
 
 export interface DrawingState {
@@ -22,7 +22,7 @@ interface DrawingContextType {
   clear: () => void;
   reset: (elements?: SvgElement[]) => void;
   setDirty: (isDirty: boolean) => void;
-  exportSvg: () => string;
+  exportSvg: (dimensions: Dimensions) => string;
   importSvg: (svg: string) => void;
 
   // Computed values
@@ -131,7 +131,7 @@ export const DrawingProvider: React.FC<DrawingProviderProps> = ({ children, onCh
   const addDrawElement = (element: SvgElement) => dispatch({ type: 'ADD_ELEMENT', payload: element });
 
   const importSvg = (content: string) => dispatch({ type: 'RESET', payload: fromSvgFormat({ content }) });
-  const exportSvg = (): string => toSvgFormat({ elements: state.elements });
+  const exportSvg = (dimensions: Dimensions): string => toSvgFormat({ elements: state.elements, dimensions });
 
   // Computed values
   const hasUndoHistory = state.undoHistory.length > 0;

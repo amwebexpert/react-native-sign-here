@@ -1,6 +1,6 @@
 {
   "name": "@amwebexpert/react-native-sign-here",
-  "version": "1.2.4",
+  "version": "1.3.0",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -25,7 +25,7 @@
   ],
   "scripts": {
     "clean:node": "npx rimraf node_modules yarn.lock",
-    "build": "tsc",
+    "build": "rimraf dist && tsc",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",

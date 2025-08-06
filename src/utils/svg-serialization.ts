@@ -1,8 +1,8 @@
 import { XMLParser } from 'fast-xml-parser';
 
+import { Dimensions, SvgElement, SvgElementType } from '../types/draw-here.types';
 import { DEFAULT_CANVAS_DIMENSIONS } from './constants';
 import { CIRCLE_SERIALIZER, ELLIPSE_SERIALIZER, PATH_SERIALIZER } from './svg-serializers';
-import { SvgElement, SvgElementType } from '../types/draw-here.types';
 
 const { width, height } = DEFAULT_CANVAS_DIMENSIONS;
 const DEFAULT_VIEW_BOX = `0 0 ${width} ${height}`;
@@ -26,21 +26,27 @@ const SERIALIZERS = new Map<SvgElementType, typeof PATH_SERIALIZER>([
   [SvgElementType.ellipse, ELLIPSE_SERIALIZER],
 ]);
 
+const dimensionsToViewBox = (dimensions: Dimensions) => {
+  const { width, height } = dimensions;
+  return `0 0 ${Math.round(width)} ${Math.round(height)}`;
+};
+
 const svgWrapper = ({ content = '', viewBox = DEFAULT_VIEW_BOX }) =>
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}"><desc>{serializerVersion: 1}</desc>${content}</svg>`;
 
 type toSvgFormatProps = {
   elements?: SvgElement[];
+  dimensions: Dimensions;
   screenScale?: number;
 };
-export const toSvgFormat = ({ elements = [], screenScale = 1 }: toSvgFormatProps) => {
+export const toSvgFormat = ({ elements = [], dimensions, screenScale = 1 }: toSvgFormatProps) => {
   const elementsCollection = elements ?? [];
   const serializedElements = elementsCollection.map(element => {
     const { serializer } = SERIALIZERS.get(element.type) ?? DEFAULT_ELEMENT_NOOP_SERIALIZER;
     return serializer({ element, screenScale });
   });
 
-  return svgWrapper({ content: serializedElements.join('\n') });
+  return svgWrapper({ content: serializedElements.join('\n'), viewBox: dimensionsToViewBox(dimensions) });
 };
 
 export const fromSvgFormat = ({ content = '', screenScale = 1 }): SvgElement[] => {

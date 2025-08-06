@@ -3,8 +3,8 @@ import { DrawingState } from '../draw.context';
 export type AspectRatio = { width: number; height: number };
 export const DEFAULT_ASPECT_RATIO: Readonly<AspectRatio> = { width: 9, height: 16 };
 
-export type CanvasSurface = { width: number; height: number };
-export type CanvasDimensions = CanvasSurface & { snapshotScale: number; screenScale: number };
+export type Dimensions = { width: number; height: number };
+export type CanvasDimensions = Dimensions & { snapshotScale: number; screenScale: number };
 
 export type XYCoordinates = { x: number; y: number };
 
@@ -68,7 +68,6 @@ export interface DrawHereProps {
   strokeColor?: string;
   strokeWidth?: number;
   onChange?: (state: DrawingState) => void;
-  onPngSnapshot?: (base64: string) => void;
 }
 
 export interface DrawHereRef {

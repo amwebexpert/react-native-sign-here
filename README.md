@@ -1,19 +1,31 @@
 # react-native-sign-here
 
+![Framework | React Native](https://img.shields.io/badge/Framework-React%20Native-61DAFB.svg) [![runs with expo](https://img.shields.io/badge/Runs%20with%20Expo-4630EB.svg?style=flat&logo=EXPO&labelColor=f3f3f3&logoColor=000)](https://github.com/expo/expo) ![Platform | Android](https://img.shields.io/badge/Platform-Android-green.svg) ![Platform | iOS](https://img.shields.io/badge/Platform-iOS-blue.svg) 
+
 [![npm](https://img.shields.io/npm/v/@amwebexpert/react-native-sign-here)](https://www.npmjs.com/package/@amwebexpert/react-native-sign-here)
 [![npm downloads](https://img.shields.io/npm/dm/@amwebexpert/react-native-sign-here)](https://www.npmjs.com/package/@amwebexpert/react-native-sign-here) [![License](https://img.shields.io/npm/l/@amwebexpert/react-native-sign-here)](./LICENSE) ![GitHub last commit](https://img.shields.io/github/last-commit/amwebexpert/react-native-sign-here) ![Latest tag](https://img.shields.io/github/v/tag/amwebexpert/react-native-sign-here)
 
-> *Under active development*
-> 
-> ⚠️ This project is currently under development: Features may be incomplete, unstable, or subject to breaking changes.
 
-A React Native signature pad with SVG support and smooth drawing capabilities. Perfect for capturing digital signatures and handwriting in mobile applications with the following native dependencies:
+A React Native signature pad with SVG support and smooth drawing capabilities. Perfect for capturing digital signatures and handwriting in mobile applications. Built with the following native dependencies:
 
 - [`react-native-svg`](https://www.npmjs.com/package/react-native-svg)
 - [`react-native-gesture-handler`](https://www.npmjs.com/package/react-native-gesture-handler)
 - [`react-native-reanimated`](https://www.npmjs.com/package/react-native-reanimated)
 
-If this project has helped you out, please support us with a star 🌟.
+## Why Choose `react-native-sign-here`?
+
+### Key Advantages
+
+**Native Performance**: Built with native React Native components (SVG + Gesture Handler) instead of WebView, providing smoother drawing and better performance.
+
+**Lightweight**: No WebView dependency means smaller bundle size and faster startup times.
+
+**Better Integration**: Seamless integration with the React Native ecosystem and easier debugging.
+
+### Alternative Libraries
+
+- [react-native-signature-canvas](https://npmjs.com/package/react-native-signature-canvas)
+- [react-native-canvas](https://npmjs.com/package/react-native-canvas)
 
 ## Features
 
@@ -22,8 +34,12 @@ If this project has helped you out, please support us with a star 🌟.
 - Support for both `iOS` and `Android`
 - Built-in `TypeScript` definitions
 - Customizable stroke width and color
-- Undo, Clear and Reset features
+- Undo, Clear, and Reset features
 - Import & Export signatures as SVG paths
+
+> **Note**: Import / Export are in XML (SVG file format) by default. If your project requires a bitmap format (like PNG), consider using [react-native-view-shot](https://github.com/gre/react-native-view-shot).
+
+If this project has helped you, please support us with a GitHub star 🌟.
 
 ## Screenshots
 
@@ -34,7 +50,7 @@ iOS                                                   | Android
 
 ## Setup
 
-### Install
+### Installation
 
 To install the library and all its peer dependencies, run one of the following commands:
 
@@ -151,11 +167,6 @@ Working examples are available in the `src/examples/` directory:
 - **Advanced Usage**: Custom styling, undo/reset, and SVG import capabilities  
 - **Form Validation**: Integration with form validation and submission
 
-You can import these examples directly:
-
-```tsx
-import { BasicUsage, AdvancedUsage, FormValidation } from 'react-native-sign-here';
-```
 
 ## API Reference
 
@@ -178,12 +189,12 @@ The main component for capturing signatures and drawings.
 | `clear()`               | -                         | `void`      | Clears all drawings from the canvas             |
 | `undo()`                | -                         | `void`      | Undoes the last drawing action                  |
 | `reset(elements?)`      | `SvgElement[]` (optional) | `void`      | Resets the canvas, optionally with new elements |
-| `exportSvg()`         |                           | `string`    | Exports the drawing as SVG string               |
-| `importSvg(svg)`        | `string`                  | `void`      | Imports an SVG string into the canvas           |
+| `exportSvg()`           | -                         | `string`    | Exports the drawing as SVG string               |
+| `importSvg(svgContent)` | `string`                  | `void`      | Imports an SVG string into the canvas           |
 
 ## References
 
-* [Usefull infos & commands](docs/usefull-commands.md)
+* [Useful Information & Commands](docs/usefull-commands.md)
 * [Contributing](docs/CONTRIBUTING.md)
 
 ## License

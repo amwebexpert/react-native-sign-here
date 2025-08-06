@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react';
-import { SvgElement, SvgElementType } from '../types/draw-here.types';
+import { SvgElement, SvgElementType } from '../../types/draw-here.types';
 import { CircleViewer } from './circle-viewer';
 import { PathViewer } from './path-viewer';
 

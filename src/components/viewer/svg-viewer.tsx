@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { StyleSheet } from 'react-native';
 import Svg from 'react-native-svg';
 
-import { SvgElement } from '../types/draw-here.types';
+import { SvgElement } from '../../types/draw-here.types';
 import { ELEMENT_VIEWERS } from './viewer.constants';
 
 interface SvgViewerProps {
