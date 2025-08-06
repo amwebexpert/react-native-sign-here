@@ -1,6 +1,6 @@
 # react-native-sign-here
 
-![Framework | React Native](https://img.shields.io/badge/Framework-React%20Native-61DAFB.svg) [![runs with expo](https://img.shields.io/badge/Runs%20with%20Expo-4630EB.svg?style=flat&logo=EXPO&labelColor=f3f3f3&logoColor=000)](https://github.com/expo/expo) ![Platform | Android](https://img.shields.io/badge/Platform-Android-green.svg) ![Platform | iOS](https://img.shields.io/badge/Platform-iOS-blue.svg) 
+![Framework | React Native](https://img.shields.io/badge/Framework-React%20Native-61DAFB.svg) ![Platform | Android](https://img.shields.io/badge/Platform-Android-green.svg) ![Platform | iOS](https://img.shields.io/badge/Platform-iOS-blue.svg) 
 
 [![npm](https://img.shields.io/npm/v/@amwebexpert/react-native-sign-here)](https://www.npmjs.com/package/@amwebexpert/react-native-sign-here)
 [![npm downloads](https://img.shields.io/npm/dm/@amwebexpert/react-native-sign-here)](https://www.npmjs.com/package/@amwebexpert/react-native-sign-here) [![License](https://img.shields.io/npm/l/@amwebexpert/react-native-sign-here)](./LICENSE) ![GitHub last commit](https://img.shields.io/github/last-commit/amwebexpert/react-native-sign-here) ![Latest tag](https://img.shields.io/github/v/tag/amwebexpert/react-native-sign-here)
@@ -16,30 +16,28 @@ A React Native signature pad with SVG support and smooth drawing capabilities. P
 
 ### Key Advantages
 
-**Native Performance**: Built with native React Native components (SVG + Gesture Handler) instead of WebView, providing smoother drawing and better performance.
-
-**Lightweight**: No WebView dependency means smaller bundle size and faster startup times.
-
-**Better Integration**: Seamless integration with the React Native ecosystem and easier debugging.
-
-### Alternative Libraries
-
-- [react-native-signature-canvas](https://npmjs.com/package/react-native-signature-canvas)
-- [react-native-canvas](https://npmjs.com/package/react-native-canvas)
+- **Native Performance**: Built with native React Native components (SVG + Gesture Handler) instead of WebView, providing smoother drawing and better performance.
+- **Lightweight**: No WebView dependency means smaller bundle size and faster startup times.
+- **Better Integration**: Seamless integration with the React Native ecosystem and easier debugging.
 
 ## Features
 
 - Smooth signature drawing with gesture handling
 - SVG-based rendering for crisp signatures
-- Support for both `iOS` and `Android`
+- Support for both `iOS` and `Android` platforms, compatible with Expo SDK
 - Built-in `TypeScript` definitions
 - Customizable stroke width and color
 - Undo, Clear, and Reset features
-- Import & Export signatures as SVG paths
+- Import & Export SVG signatures as XML
 
-> **Note**: Import / Export are in XML (SVG file format) by default. If your project requires a bitmap format (like PNG), consider using [react-native-view-shot](https://github.com/gre/react-native-view-shot).
+> **Note**: Import / Export are in XML (SVG file format) by default. If your project requires a bitmap format (like PNG or JPEG) consider using [react-native-view-shot](https://github.com/gre/react-native-view-shot).
 
 If this project has helped you, please support us with a GitHub star 🌟.
+
+### Alternative Libraries
+
+- [react-native-signature-canvas](https://npmjs.com/package/react-native-signature-canvas)
+- [react-native-canvas](https://npmjs.com/package/react-native-canvas)
 
 ## Screenshots
 
@@ -158,6 +156,10 @@ const AdvancedSignatureScreen = () => {
   );
 };
 ```
+
+### Even more advanced usage 
+
+- [Expo SDK](https://github.com/amwebexpert/poc-archiver-expo/blob/master/src/features/experiments/native-signature-pad.tsx)
 
 ## Examples
 
