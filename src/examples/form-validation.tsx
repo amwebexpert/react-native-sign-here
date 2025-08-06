@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
-import { View, Button, Alert } from 'react-native';
-import DrawHere, { DrawingState, ExportFormat, DrawHereRef } from '../';
+import { Alert, Button, View } from 'react-native';
+import DrawHere, { DrawHereRef, DrawingState } from '../';
 
 const FormWithSignature = () => {
   const signatureRef = useRef<DrawHereRef>(null);
@@ -13,7 +13,7 @@ const FormWithSignature = () => {
     }
 
     try {
-      const svgSignature = await signatureRef.current?.exportAs(ExportFormat.SVG);
+      const svgSignature = await signatureRef.current?.exportSvg();
       // Send signature to server or process further
       console.log('Form submitted with signature:', svgSignature);
     } catch (error) {

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { View, Button, Text } from 'react-native';
-import DrawHere, { DrawingState, ExportFormat, DrawHereRef } from '../';
+import DrawHere, { DrawingState, DrawHereRef } from '../';
 
 const AdvancedSignatureScreen = () => {
   const signatureRef = useRef<DrawHereRef>(null);

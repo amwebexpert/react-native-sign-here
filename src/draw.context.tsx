@@ -1,5 +1,5 @@
 import React, { createContext, ReactNode, useContext, useEffect, useReducer } from 'react';
-import { ExportFormat, SvgElement } from './types/draw-here.types';
+import { SvgElement } from './types/draw-here.types';
 import { fromSvgFormat, toSvgFormat } from './utils/svg-serialization';
 
 export interface DrawingState {
@@ -22,7 +22,7 @@ interface DrawingContextType {
   clear: () => void;
   reset: (elements?: SvgElement[]) => void;
   setDirty: (isDirty: boolean) => void;
-  exportAs: (format: ExportFormat) => Promise<string>;
+  exportSvg: () => string;
   importSvg: (svg: string) => void;
 
   // Computed values
@@ -130,18 +130,8 @@ export const DrawingProvider: React.FC<DrawingProviderProps> = ({ children, onCh
   const setDirty = (isDirty: boolean) => dispatch({ type: 'SET_DIRTY', payload: isDirty });
   const addDrawElement = (element: SvgElement) => dispatch({ type: 'ADD_ELEMENT', payload: element });
 
-  const exportAs = async (format: ExportFormat): Promise<string> => {
-    if (format === ExportFormat.SVG) {
-      return toSvgFormat({ elements: state.elements });
-    }
-
-    throw new Error(`Exporting to ${format} is not supported yet (stay tuned)`);
-  };
-
-  const importSvg = (content: string) => {
-    const elements = fromSvgFormat({ content });
-    dispatch({ type: 'RESET', payload: elements });
-  };
+  const importSvg = (content: string) => dispatch({ type: 'RESET', payload: fromSvgFormat({ content }) });
+  const exportSvg = (): string => toSvgFormat({ elements: state.elements });
 
   // Computed values
   const hasUndoHistory = state.undoHistory.length > 0;
@@ -162,7 +152,7 @@ export const DrawingProvider: React.FC<DrawingProviderProps> = ({ children, onCh
     hasUndoHistory,
     elementsCount,
     isCanvasEmpty,
-    exportAs,
+    exportSvg,
     importSvg,
   };
 

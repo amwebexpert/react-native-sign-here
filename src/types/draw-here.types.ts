@@ -68,18 +68,14 @@ export interface DrawHereProps {
   strokeColor?: string;
   strokeWidth?: number;
   onChange?: (state: DrawingState) => void;
-}
-
-export enum ExportFormat {
-  SVG = 'svg',
-  // PNG = 'png', // Not supported yet (stay tuned)
+  onPngSnapshot?: (base64: string) => void;
 }
 
 export interface DrawHereRef {
   clear: () => void;
   undo: () => void;
   reset: (elements?: SvgElement[]) => void;
-  exportAs: (format: ExportFormat) => Promise<string>;
+  exportSvg: () => string;
   importSvg: (svg: string) => void;
 }
 

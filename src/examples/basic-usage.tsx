@@ -1,13 +1,13 @@
 import React, { useRef } from 'react';
 import { View, Button } from 'react-native';
-import DrawHere, { ExportFormat, DrawHereRef } from '../';
+import DrawHere, { DrawHereRef } from '../';
 
 const SignatureScreen = () => {
   const signatureRef = useRef<DrawHereRef>(null);
 
   const handleSave = async () => {
     if (signatureRef.current) {
-      const svg = await signatureRef.current.exportAs(ExportFormat.SVG);
+      const svg = signatureRef.current.exportSvg();
       console.log('Signature SVG:', svg);
     }
   };

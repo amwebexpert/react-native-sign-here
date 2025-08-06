@@ -27,8 +27,8 @@ If this project has helped you out, please support us with a star 🌟.
 
 ## Screenshots
 
-iOS                                       | Android
-------------------------------------------|----------------------------------------------
+iOS                                                   | Android
+------------------------------------------------------|----------------------------------------------------------
 <img width="300" src="docs/images/example-ios.png" /> | <img width="300" src="docs/images/example-android.jpg" />
 
 
@@ -62,7 +62,7 @@ const SignatureScreen = () => {
 
   const handleSave = async () => {
     if (signatureRef.current) {
-      const svg = await signatureRef.current.exportAs(ExportFormat.SVG);
+      const svg = await signatureRef.current.exportSvg();
       console.log('Signature SVG:', svg);
     }
   };
@@ -143,51 +143,6 @@ const AdvancedSignatureScreen = () => {
 };
 ```
 
-#### Using with Form Validation
-
-```tsx
-import React, { useRef, useState } from 'react';
-import { View, Button, Alert } from 'react-native';
-import DrawHere, { DrawingState, ExportFormat, DrawHereRef } from 'react-native-sign-here';
-
-const FormWithSignature = () => {
-  const signatureRef = useRef<DrawHereRef>(null);
-  const [hasSignature, setHasSignature] = useState(false);
-
-  const handleSubmit = async () => {
-    if (!hasSignature) {
-      Alert.alert('Error', 'Please provide your signature');
-      return;
-    }
-
-    try {
-      const svgSignature = await signatureRef.current?.exportAs(ExportFormat.SVG);
-      // Send signature to server or process further
-      console.log('Form submitted with signature:', svgSignature);
-    } catch (error) {
-      console.error('Error exporting signature:', error);
-    }
-  };
-
-  return (
-    <View style={{ flex: 1, padding: 20 }}>
-      <DrawHere
-        ref={signatureRef}
-        onChange={(state: DrawingState) => setHasSignature(state.elements.length > 0)}
-        strokeColor="black"
-        strokeWidth={1}
-      />
-      
-      <Button 
-        title="Submit Form" 
-        onPress={handleSubmit}
-        disabled={!hasSignature}
-      />
-    </View>
-  );
-};
-```
-
 ## Examples
 
 Working examples are available in the `src/examples/` directory:
@@ -218,76 +173,13 @@ The main component for capturing signatures and drawings.
 
 #### Ref Methods
 
-| Method             | Parameters                | Return Type       | Description                                     |
-|--------------------|---------------------------|-------------------|-------------------------------------------------|
-| `clear()`          | -                         | `void`            | Clears all drawings from the canvas             |
-| `undo()`           | -                         | `void`            | Undoes the last drawing action                  |
-| `reset(elements?)` | `SvgElement[]` (optional) | `void`            | Resets the canvas, optionally with new elements |
-| `exportAs(format)` | `ExportFormat`            | `Promise<string>` | Exports the drawing as SVG string               |
-| `importSvg(svg)`   | `string`                  | `void`            | Imports an SVG string into the canvas           |
-
-### Types
-
-#### DrawingState
-
-```tsx
-interface DrawingState {
-  elements: SvgElement[];           // Array of SVG elements on canvas
-  undoHistory: SvgElement[][];      // History for undo functionality
-  isDrawGestureDirty: boolean;      // Whether the current gesture is dirty
-}
-```
-
-**Note**: To check if the canvas is empty, use `state.elements.length === 0`.
-
-#### SvgElement
-
-```tsx
-interface SvgElement {
-  id: number;                       // Unique identifier
-  type: SvgElementType;             // Type of SVG element
-  strokeColor?: string;             // Stroke color
-  strokeWidth?: number;             // Stroke width
-  fill?: string;                    // Fill color
-  isSelected?: boolean;             // Selection state
-}
-```
-
-#### ExportFormat
-
-```tsx
-enum ExportFormat {
-  SVG = 'svg'                       // Export as SVG string
-  // PNG = 'png'                    // Not supported yet
-}
-```
-
-#### CanvasMode
-
-```tsx
-enum CanvasMode {
-  ZOOM_PAN = 'ZOOM_PAN',           // Zoom and pan mode
-  DRAW = 'DRAW',                    // Drawing mode
-  SELECTOR = 'SELECTOR',            // Selection mode
-  TRANSFORM = 'TRANSFORM'           // Transform mode
-}
-```
-
-### Constants
-
-#### Default Aspect Ratio
-
-```tsx
-const DEFAULT_ASPECT_RATIO: AspectRatio = { width: 9, height: 16 };
-```
-
-### Utility Functions
-
-The library also exports various utility functions for working with SVG elements and geometry:
-
-- `isPath(element)`: Type guard for path elements
-- `isCircle(element)`: Type guard for circle elements  
-- `isEllipse(element)`: Type guard for ellipse elements
+| Method                  | Parameters                | Return Type | Description                                     |
+|-------------------------|---------------------------|-------------|-------------------------------------------------|
+| `clear()`               | -                         | `void`      | Clears all drawings from the canvas             |
+| `undo()`                | -                         | `void`      | Undoes the last drawing action                  |
+| `reset(elements?)`      | `SvgElement[]` (optional) | `void`      | Resets the canvas, optionally with new elements |
+| `exportSvg()`         |                           | `string`    | Exports the drawing as SVG string               |
+| `importSvg(svg)`        | `string`                  | `void`      | Imports an SVG string into the canvas           |
 
 ## References
 

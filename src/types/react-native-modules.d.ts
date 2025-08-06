@@ -8,12 +8,13 @@ declare module 'react-native-svg' {
     viewBox?: string;
     children?: React.ReactNode;
     style?: any;
+    ref?: any;
   }
 
   export interface PathProps {
     d?: string;
     stroke?: string;
-    strokeWidth?: number;
+    strokeWidth?: number | string;
     fill?: string;
     children?: React.ReactNode;
   }
@@ -23,16 +24,39 @@ declare module 'react-native-svg' {
     cy?: number | string;
     r?: number | string;
     stroke?: string;
-    strokeWidth?: number;
+    strokeWidth?: number | string;
     fill?: string;
     children?: React.ReactNode;
+  }
+
+  export interface RectProps {
+    x?: number | string;
+    y?: number | string;
+    width?: number | string;
+    height?: number | string;
+    stroke?: string;
+    strokeWidth?: number | string;
+    fill?: string;
+    children?: React.ReactNode;
+  }
+
+  export interface GProps {
+    scale?: number;
+    children?: React.ReactNode;
+  }
+
+  export interface SvgRef {
+    toDataURL: (callback: (base64: string) => void, dimensions: { width: number; height: number }) => void;
+    props: SvgProps;
   }
 
   const Svg: React.ComponentType<SvgProps>;
   const Path: React.ComponentType<PathProps>;
   const Circle: React.ComponentType<CircleProps>;
+  const Rect: React.ComponentType<RectProps>;
+  const G: React.ComponentType<GProps>;
 
-  export { Svg, Path, Circle };
+  export { Svg, Path, Circle, Rect, G };
   export default Svg;
 }
 

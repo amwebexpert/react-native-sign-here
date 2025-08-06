@@ -2,9 +2,8 @@ import React, { FunctionComponent } from 'react';
 import { StyleSheet } from 'react-native';
 import Svg from 'react-native-svg';
 
-import { SvgElement, isCircle, isPath } from '../types/draw-here.types';
-import { CircleViewer } from './circle-viewer';
-import { PathViewer } from './path-viewer';
+import { SvgElement } from '../types/draw-here.types';
+import { ELEMENT_VIEWERS } from './viewer.constants';
 
 interface SvgViewerProps {
   elements?: SvgElement[];
@@ -13,33 +12,8 @@ interface SvgViewerProps {
 const SvgViewer: FunctionComponent<SvgViewerProps> = ({ elements = [] }) => (
   <Svg style={styles.container} height="100%" width="100%">
     {elements.map(item => {
-      if (isPath(item)) {
-        return (
-          <PathViewer
-            key={item.id}
-            d={item.d}
-            strokeColor={item.strokeColor}
-            strokeWidth={item.strokeWidth}
-            fill={item.fill}
-          />
-        );
-      }
-
-      if (isCircle(item)) {
-        return (
-          <CircleViewer
-            key={item.id}
-            cx={item.cx}
-            cy={item.cy}
-            radius={item.radius}
-            strokeColor={item.strokeColor}
-            strokeWidth={item.strokeWidth}
-            fill={item.fill}
-          />
-        );
-      }
-
-      return null;
+      const ElementViewer = ELEMENT_VIEWERS.get(item.type);
+      return ElementViewer ? <ElementViewer key={item.id} {...item} /> : null;
     })}
   </Svg>
 );
