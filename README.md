@@ -172,9 +172,7 @@ Working examples are available in the `src/examples/` directory:
 
 ## API Reference
 
-### DrawHere Component
-
-The main component for capturing signatures and drawings.
+The default exported component (you name it the way you want like `SignHere` or `DrawHere`) for capturing gestures.
 
 #### Props
 
