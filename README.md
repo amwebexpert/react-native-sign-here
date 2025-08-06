@@ -69,7 +69,7 @@ The simplest way to use the signature pad:
 ```tsx
 import React, { useRef } from 'react';
 import { View, Button } from 'react-native';
-import DrawHere, { ExportFormat, DrawHereRef } from 'react-native-sign-here';
+import SignHere, { ExportFormat, DrawHereRef } from 'react-native-sign-here';
 
 const SignatureScreen = () => {
   const signatureRef = useRef<DrawHereRef>(null);
@@ -87,7 +87,7 @@ const SignatureScreen = () => {
 
   return (
     <View style={{ flex: 1, padding: 20 }}>
-      <DrawHere
+      <SignHere
         ref={signatureRef}
         strokeColor="black"
         strokeWidth={1}
@@ -109,7 +109,7 @@ const SignatureScreen = () => {
 ```tsx
 import React, { useRef, useState } from 'react';
 import { View, Button, Text } from 'react-native';
-import DrawHere, { DrawingState, ExportFormat, DrawHereRef } from 'react-native-sign-here';
+import SignHere, { DrawingState, ExportFormat, DrawHereRef } from 'react-native-sign-here';
 
 const AdvancedSignatureScreen = () => {
   const signatureRef = useRef<DrawHereRef>(null);
@@ -140,7 +140,7 @@ const AdvancedSignatureScreen = () => {
         {isSigned ? 'Signature captured' : 'Please sign below'}
       </Text>
       
-      <DrawHere
+      <SignHere
         ref={signatureRef}
         strokeColor="#2E86AB"
         strokeWidth={3}
